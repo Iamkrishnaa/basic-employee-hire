@@ -6,7 +6,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
+/**
+ * Below is the class for staff hire*/
 public class INGNepal implements ActionListener {
 
     ArrayList<StaffHire> staffHires;
