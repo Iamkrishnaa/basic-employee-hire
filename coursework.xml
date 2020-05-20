@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="coursework" default="all">
+  
+  
+  <property file="coursework.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*.yarb/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.war"/>
+    <include name="*.swc"/>
+    <include name="*.apk"/>
+    <include name="*.zip"/>
+    <include name="*.egg"/>
+    <include name="*.ear"/>
+    <include name="*.ane"/>
+    <include name="*.jar"/>
+    <include name="*.klib"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+    <exclude name="**/?*.aj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.13" value="${jdk.home.13}/bin"/>
+  <path id="jdk.classpath.13">
+    <fileset dir="${jdk.home.13}">
+      <include name="../jdk-13.0.2!/java.base"/>
+      <include name="../jdk-13.0.2!/java.compiler"/>
+      <include name="../jdk-13.0.2!/java.datatransfer"/>
+      <include name="../jdk-13.0.2!/java.desktop"/>
+      <include name="../jdk-13.0.2!/java.instrument"/>
+      <include name="../jdk-13.0.2!/java.logging"/>
+      <include name="../jdk-13.0.2!/java.management"/>
+      <include name="../jdk-13.0.2!/java.management.rmi"/>
+      <include name="../jdk-13.0.2!/java.naming"/>
+      <include name="../jdk-13.0.2!/java.net.http"/>
+      <include name="../jdk-13.0.2!/java.prefs"/>
+      <include name="../jdk-13.0.2!/java.rmi"/>
+      <include name="../jdk-13.0.2!/java.scripting"/>
+      <include name="../jdk-13.0.2!/java.se"/>
+      <include name="../jdk-13.0.2!/java.security.jgss"/>
+      <include name="../jdk-13.0.2!/java.security.sasl"/>
+      <include name="../jdk-13.0.2!/java.smartcardio"/>
+      <include name="../jdk-13.0.2!/java.sql"/>
+      <include name="../jdk-13.0.2!/java.sql.rowset"/>
+      <include name="../jdk-13.0.2!/java.transaction.xa"/>
+      <include name="../jdk-13.0.2!/java.xml"/>
+      <include name="../jdk-13.0.2!/java.xml.crypto"/>
+      <include name="../jdk-13.0.2!/jdk.accessibility"/>
+      <include name="../jdk-13.0.2!/jdk.aot"/>
+      <include name="../jdk-13.0.2!/jdk.attach"/>
+      <include name="../jdk-13.0.2!/jdk.charsets"/>
+      <include name="../jdk-13.0.2!/jdk.compiler"/>
+      <include name="../jdk-13.0.2!/jdk.crypto.cryptoki"/>
+      <include name="../jdk-13.0.2!/jdk.crypto.ec"/>
+      <include name="../jdk-13.0.2!/jdk.crypto.mscapi"/>
+      <include name="../jdk-13.0.2!/jdk.dynalink"/>
+      <include name="../jdk-13.0.2!/jdk.editpad"/>
+      <include name="../jdk-13.0.2!/jdk.hotspot.agent"/>
+      <include name="../jdk-13.0.2!/jdk.httpserver"/>
+      <include name="../jdk-13.0.2!/jdk.internal.ed"/>
+      <include name="../jdk-13.0.2!/jdk.internal.jvmstat"/>
+      <include name="../jdk-13.0.2!/jdk.internal.le"/>
+      <include name="../jdk-13.0.2!/jdk.internal.opt"/>
+      <include name="../jdk-13.0.2!/jdk.internal.vm.ci"/>
+      <include name="../jdk-13.0.2!/jdk.internal.vm.compiler"/>
+      <include name="../jdk-13.0.2!/jdk.internal.vm.compiler.management"/>
+      <include name="../jdk-13.0.2!/jdk.jartool"/>
+      <include name="../jdk-13.0.2!/jdk.javadoc"/>
+      <include name="../jdk-13.0.2!/jdk.jcmd"/>
+      <include name="../jdk-13.0.2!/jdk.jconsole"/>
+      <include name="../jdk-13.0.2!/jdk.jdeps"/>
+      <include name="../jdk-13.0.2!/jdk.jdi"/>
+      <include name="../jdk-13.0.2!/jdk.jdwp.agent"/>
+      <include name="../jdk-13.0.2!/jdk.jfr"/>
+      <include name="../jdk-13.0.2!/jdk.jlink"/>
+      <include name="../jdk-13.0.2!/jdk.jshell"/>
+      <include name="../jdk-13.0.2!/jdk.jsobject"/>
+      <include name="../jdk-13.0.2!/jdk.jstatd"/>
+      <include name="../jdk-13.0.2!/jdk.localedata"/>
+      <include name="../jdk-13.0.2!/jdk.management"/>
+      <include name="../jdk-13.0.2!/jdk.management.agent"/>
+      <include name="../jdk-13.0.2!/jdk.management.jfr"/>
+      <include name="../jdk-13.0.2!/jdk.naming.dns"/>
+      <include name="../jdk-13.0.2!/jdk.naming.rmi"/>
+      <include name="../jdk-13.0.2!/jdk.net"/>
+      <include name="../jdk-13.0.2!/jdk.pack"/>
+      <include name="../jdk-13.0.2!/jdk.rmic"/>
+      <include name="../jdk-13.0.2!/jdk.scripting.nashorn"/>
+      <include name="../jdk-13.0.2!/jdk.scripting.nashorn.shell"/>
+      <include name="../jdk-13.0.2!/jdk.sctp"/>
+      <include name="../jdk-13.0.2!/jdk.security.auth"/>
+      <include name="../jdk-13.0.2!/jdk.security.jgss"/>
+      <include name="../jdk-13.0.2!/jdk.unsupported"/>
+      <include name="../jdk-13.0.2!/jdk.unsupported.desktop"/>
+      <include name="../jdk-13.0.2!/jdk.xml.dom"/>
+      <include name="../jdk-13.0.2!/jdk.zipfs"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.13}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.13}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.13"/>
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <fileset dir="${javac2.home}">
+      <include name="javac2.jar"/>
+      <include name="jdom.jar"/>
+      <include name="asm-all*.jar"/>
+      <include name="forms-*.jar"/>
+    </fileset>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  
+  <!-- Module Coursework -->
+  
+  <dirname property="module.coursework.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.coursework" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.coursework" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.coursework" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.coursework" value="-encoding UTF-8 -source 13 -target 13 ${compiler.args}"/>
+  
+  <property name="coursework.output.dir" value="${module.coursework.basedir}/out/production/Coursework"/>
+  <property name="coursework.testoutput.dir" value="${module.coursework.basedir}/out/test/Coursework"/>
+  
+  <path id="coursework.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="coursework.module.production.classpath">
+    <path refid="${module.jdk.classpath.coursework}"/>
+  </path>
+  
+  <path id="coursework.runtime.production.module.classpath">
+    <pathelement location="${coursework.output.dir}"/>
+  </path>
+  
+  <path id="coursework.module.classpath">
+    <path refid="${module.jdk.classpath.coursework}"/>
+    <pathelement location="${coursework.output.dir}"/>
+  </path>
+  
+  <path id="coursework.runtime.module.classpath">
+    <pathelement location="${coursework.testoutput.dir}"/>
+    <pathelement location="${coursework.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.coursework">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.coursework">
+    <patternset refid="excluded.from.module.coursework"/>
+  </patternset>
+  
+  <path id="coursework.module.sourcepath">
+    <dirset dir="${module.coursework.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.coursework" depends="compile.module.coursework.production,compile.module.coursework.tests" description="Compile module Coursework"/>
+  
+  <target name="compile.module.coursework.production" depends="register.custom.compilers" description="Compile module Coursework; production classes">
+    <mkdir dir="${coursework.output.dir}"/>
+    <javac2 destdir="${coursework.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.coursework}/javac">
+      <compilerarg line="${compiler.args.coursework}"/>
+      <bootclasspath refid="coursework.module.bootclasspath"/>
+      <classpath refid="coursework.module.production.classpath"/>
+      <src refid="coursework.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.coursework"/>
+    </javac2>
+    
+    <copy todir="${coursework.output.dir}">
+      <fileset dir="${module.coursework.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.coursework.tests" depends="register.custom.compilers,compile.module.coursework.production" description="compile module Coursework; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.coursework" description="cleanup module">
+    <delete dir="${coursework.output.dir}"/>
+    <delete dir="${coursework.testoutput.dir}"/>
+  </target>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.coursework" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.coursework" description="build all modules"/>
+  
+  <target name="init.artifacts">
+    <property name="artifacts.temp.dir" value="${basedir}/__artifacts_temp"/>
+    <property name="artifact.output.coursework:jar" value="${basedir}/out/artifacts/Coursework_jar"/>
+    <mkdir dir="${artifacts.temp.dir}"/>
+    <property name="temp.jar.path.Coursework.jar" value="${artifacts.temp.dir}/Coursework.jar"/>
+  </target>
+  
+  <target name="artifact.coursework:jar" depends="init.artifacts, compile.module.coursework" description="Build &#39;Coursework:jar&#39; artifact">
+    <property name="artifact.temp.output.coursework:jar" value="${artifacts.temp.dir}/Coursework_jar"/>
+    <mkdir dir="${artifact.temp.output.coursework:jar}"/>
+    <jar destfile="${temp.jar.path.Coursework.jar}" duplicate="preserve" filesetmanifest="mergewithoutmain">
+      <zipfileset dir="${coursework.output.dir}"/>
+    </jar>
+    <copy file="${temp.jar.path.Coursework.jar}" tofile="${artifact.temp.output.coursework:jar}/Coursework.jar"/>
+  </target>
+  
+  <target name="build.all.artifacts" depends="artifact.coursework:jar" description="Build all artifacts">
+    <mkdir dir="${artifact.output.coursework:jar}"/>
+    <copy todir="${artifact.output.coursework:jar}">
+      <fileset dir="${artifact.temp.output.coursework:jar}"/>
+    </copy>
+    
+    <!-- Delete temporary files -->
+    <delete dir="${artifacts.temp.dir}"/>
+  </target>
+  
+  <target name="all" depends="build.modules, build.all.artifacts" description="build all"/>
+</project>
